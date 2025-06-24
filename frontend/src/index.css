@@ -1,0 +1,132 @@
+@import url('https://fonts.googleapis.com/css2?family=Bree+Serif&family=Caveat:wght@400;700&family=Lobster&family=Monoton&family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display+SC:ital,wght@0,400;0,700;1,700&family=Playfair+Display:ital,wght@0,400;0,700;1,700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&family=Source+Sans+Pro:ital,wght@0,400;0,700;1,700&family=Work+Sans:ital,wght@0,400;0,700;1,700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+
+@import "tailwindcss";
+
+* {
+  @apply box-border;
+}
+
+@theme {
+  --font-figtree: "Figtree", sans-serif;
+  --font-inter: "Inter", sans-serif;
+
+  --color-light-100: #ecf2ef;
+
+  --animate-slide-in: slide-in 0.5s ease-out both;
+
+  @keyframes slide-in {
+    from {
+      opacity: 0;
+      transform: translateX(100%);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+}
+
+@layer components {
+  .form-container {
+    @apply min-h-screen flex-center bg-gray-100 p-8;
+    form {
+      @apply w-full max-w-sm bg-white p-8 rounded-2xl shadow-md space-y-4;
+    }
+    h2 {
+      @apply text-2xl font-bold text-center mb-8 text-gray-600;
+    }
+    label {
+      @apply block text-sm font-medium text-gray-500 mb-2;
+    }
+    .input {
+      @apply w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none 
+      focus-within:ring-2 focus-within:ring-blue-500;
+    }
+    button {
+      @apply w-full py-2 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 
+      focus:outline-none focus:ring-2 focus:ring-blue-500 mt-3;
+    }
+    p {
+      @apply text-sm text-gray-500 text-center;
+    }
+    a {
+      @apply text-blue-600 hover:underline cursor-pointer;
+    }
+  }
+
+  .medications-table {
+    @apply overflow-x-auto;
+    table {
+      @apply min-w-full border border-gray-300 rounded-xl overflow-hidden;
+    }
+    thead {
+      @apply bg-green-100 text-left;
+    }
+    th, td {
+      @apply px-4 py-3;
+    }
+  }
+
+  .profile-card {
+    @apply p-6 max-w-3xl mx-auto;
+    h2 {
+      @apply text-2xl font-semibold mb-6;
+    }
+
+    .card {
+      @apply bg-white shadow-md rounded-xl p-6 flex flex-col md:flex-row items-center gap-6;
+      img {
+        @apply w-40 h-46 p-0.5 rounded-xl object-cover border-4 border-indigo-200 hover:opacity-95;
+      }
+      h3 {
+        @apply text-lg font-medium text-gray-700;
+      }
+      p {
+        @apply text-gray-900;
+      }
+    }
+  }
+
+  .sidebar {
+    @apply fixed top-0 left-0 h-full z-40 duration-300 ease-in-out;
+  }
+}
+
+@utility flex-center {
+  @apply flex justify-center items-center;
+}
+
+@utility error-msg {
+  @apply text-red-500 text-sm mt-1;
+}
+
+@utility button {
+  @apply px-4 py-2 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 
+  focus:outline-none focus:ring-2 focus:ring-blue-500 transition;
+}
+
+@utility show-password {
+  @apply cursor-pointer size-4;
+}
+
+@utility file {
+  @apply block w-full mb-4 text-gray-600 border border-gray-300 rounded-lg focus:ring-blue-500 
+  focus:border-blue-500 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm 
+  file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100
+}
+
+html, body {
+  font-family: "Figtree", sans-serif;
+  background-color: #f9fbfc;
+  scroll-behavior: smooth;
+}
+
+button {
+  cursor: pointer;
+}
+
+.group:hover .group-hover\:opacity-100 {
+  opacity: 1;
+}
